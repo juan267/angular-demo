@@ -1,7 +1,7 @@
 var app = angular.module('flapperNews', [])
 
 app.controller('MainCtrl', function($scope){
-  $scope.test = "Hello world"
+  $scope.brand = "Maker News"
 
   $scope.posts = [
     {title: 'post 1', upvotes: 5},
