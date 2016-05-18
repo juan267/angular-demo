@@ -1,15 +1,8 @@
 var app = angular.module('flapperNews', [])
 
-app.controller('MainCtrl', function($scope){
+app.controller('MainCtrl', ["$scope", "posts" ,function($scope, posts){
   $scope.brand = "Maker News"
-
-  $scope.posts = [
-    {title: 'post 1', upvotes: 5},
-    {title: 'post 2', upvotes: 5},
-    {title: 'post 3', upvotes: 5},
-    {title: 'post 4', upvotes: 9},
-    {title: 'post 5', upvotes: 11}
-  ]
+  $scope.posts = posts.posts
 
   $scope.addPost = function(){
     if( !$scope.title || $scope.title === ''){return;}
@@ -25,4 +18,11 @@ app.controller('MainCtrl', function($scope){
   $scope.addVote = function(post){
     post.upvotes += 1
   }
+}])
+
+app.factory('posts', function(){
+  var o = {
+    posts: []
+  }
+  return o
 })
